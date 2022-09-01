@@ -9,7 +9,7 @@
 
     <div class="t-mt-6">
       <span class="t-font-bold text-lg" >Number of Occurences</span>
-      <p class="t-mt-2">{{vulnerability.occurences}}</p>
+      <p class="t-mt-2">{{vulnerability.occurences?.toLocaleString()}}</p>
   </div>
 
   <div class="t-mt-6">
