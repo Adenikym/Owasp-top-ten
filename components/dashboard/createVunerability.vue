@@ -28,12 +28,14 @@
     v-model="form.occurences"
     :rules="occurenceRules"
     label="Number of Occurences"
+    type="number"
     required
     light
   ></v-text-field>
   <v-text-field
     v-model="form.maxCoverage"
     :rules="coverageRules"
+    type="number"
     label="Max coverage"
     required
     light

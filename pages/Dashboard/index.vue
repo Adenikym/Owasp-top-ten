@@ -16,6 +16,9 @@
       <template v-slot:[`item.description`]="{ item }">
         <div class="  t-w-52 t-truncate t-py-5">{{ item.description }}</div>
       </template>
+      <template v-slot:[`item.occurences`]="{ item }">
+        <div class="">{{ item.occurences.toLocaleString() }}</div>
+      </template>
       <template v-slot:[`item.actions`]="{ item }">
         <v-icon @click="openUpdateForm(item)">mdi-pencil</v-icon>
         <v-icon @click="viewVunerability(item)">mdi-eye</v-icon>
