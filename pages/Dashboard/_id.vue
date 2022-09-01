@@ -1,20 +1,20 @@
 <template>
   <div class="t-px-12 t-py-10">
-<h2>{{vulnerability.name}}</h2>
+<h2 class="t-font-bold t-text-xl t-text-primary">{{vulnerability.name}}</h2>
     <div class="t-mt-6 flex t-justify-between">
-      <span>Description</span>
-      <p>{{vulnerability.description}}</p>
+      <span class="t-font-bold text-lg">Description</span>
+      <p class="t-mt-2 t-w-full sm:t-w-1/2">{{vulnerability.description}}</p>
     </div>
 
 
     <div class="t-mt-6">
-      <span>Number of Occurences</span>
-      <p>{{vulnerability.occurences}}</p>
+      <span class="t-font-bold text-lg" >Number of Occurences</span>
+      <p class="t-mt-2">{{vulnerability.occurences}}</p>
   </div>
 
   <div class="t-mt-6">
-      <span>Max coverage</span>
-      <p>{{vulnerability.maxCoverage}}</p>
+      <span class="t-font-bold text-lg">Max coverage</span>
+      <p class="t-mt-2">{{vulnerability.maxCoverage}}</p>
   </div>
 
 
@@ -42,6 +42,8 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped>
+* {
+  font-family: "Sora", sans-serif;
+}
 </style>

@@ -49,7 +49,7 @@ export default {
         },
         { text: "Description", value: "description", width: "30%" },
         { text: "Number of Occurences", value: "occurences" },
-        { text: "Max coverage", value: "maxCoverage" },
+        { text: "Max coverage(%)", value: "maxCoverage" },
 
         { text: "Actions", value: "actions" },
       ],

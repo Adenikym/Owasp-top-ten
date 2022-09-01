@@ -9,27 +9,31 @@
         </div>
 
         <div class="mt-6">
-<v-form >
+<v-form  ref="form" v-model="valid" lazy-validation>
   <v-text-field
     v-model="form.name"
+    :rules="nameRules"
     label="Name"
     required
     light
   ></v-text-field>
-  <v-text-field
+  <v-textarea
     v-model="form.description"
     label="Description"
+    :rules="descriptionRules"
     required
     light
-  ></v-text-field>
+  ></v-textarea>
   <v-text-field
     v-model="form.occurences"
+    :rules="occurenceRules"
     label="Number of Occurences"
     required
     light
   ></v-text-field>
   <v-text-field
     v-model="form.maxCoverage"
+    :rules="coverageRules"
     label="Max coverage"
     required
     light
@@ -62,7 +66,23 @@ data(){
          maxCoverage:'',
          id:''
      },
-     vulnerabilities:vulnerabilities
+     vulnerabilities:vulnerabilities,
+     valid:true,
+     nameRules:[
+         v => !!v || 'Name is required',
+         v => (v && v.length <= 50) || 'Name must be less than 50 characters'
+     ],
+      descriptionRules:[
+          v => !!v || 'Description is required'
+      ],
+      occurenceRules:[
+          v => !!v || 'Occurence is required'
+      ],
+      coverageRules:[
+          v => !!v || 'Max coverage is required',
+          v => (v <= 100) || 'Max coverage must be less than or equal to 100'
+      ],
+      
     }
 },
 methods:{
@@ -71,9 +91,19 @@ methods:{
   },
 
   addVunerability(){
-    this.form.id= this.vulnerabilities.length + 1
+    if(this.$refs.form.validate()){
+         this.form.id= this.vulnerabilities.length + 1
     this.$emit('add-vulnerability',this.form)
-     this.$emit('close-add-vulnerability-form')
+     this.$emit('close-add-vulnerability-form') 
+     this.form={
+         name:'',
+         description:'',
+         occurences:'',
+         maxCoverage:'',
+         id:''
+     }
+    }
+ 
   }
 }
 }
